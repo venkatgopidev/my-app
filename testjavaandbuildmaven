@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage ('clone') {
+            steps {
+                git url: 'https://github.com/vamshi5590/my-app.git'
+            }
+        }
+        stage ('maven clean') {
+            steps {
+                sh 'mvn clean'
+            }
+        }
+        stage ('maven package') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+    }
+}
